@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class SeleniumTest {
@@ -66,8 +68,16 @@ public class SeleniumTest {
     Írj tesztesetet a mellékelt dokumentumban, majd a tesztlépések alapján írj automatizált tesztet. A teszteset ellenőrizze a névjegykártyák tartalmát.Olvasd ki a neveket a megjelenő névjegykártyákról és ellenőrzésként hasonlítsd össze egy elvárt eredményként megadott listával.
     Használj relatív útvonalat a névjegykártya név elemeinek kiolvasásához.
      */
-    public void NamecardTest()
-    {}
+    @Test
+    public void NamecardTest() {
+        NameCards nameCards = new NameCards(driver);
+        nameCards.navigate();
+
+        List<String> actual =  nameCards.readNamesFromList();
+        List<String> expected = Arrays.asList("Tyreese Burn", "Brenda Tree", "Glenn Pho shizzle", "Brian Hoyies", "Glenn Pho shizzle", "Arman Cheyia");
+
+        Assertions.assertArrayEquals(expected.toArray(), actual.toArray());
+    }
 
     /*
     Töltsd be az alábbi oldalt a böngészőbe: https://demo.seleniumeasy.com/table-data-download-demo.html
