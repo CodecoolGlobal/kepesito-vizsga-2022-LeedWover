@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="TAKepesitoVizsga" />
+        <module name="kepesito-vizsga-2022-LeedWover" />
       </profile>
     </annotationProcessing>
   </component>
