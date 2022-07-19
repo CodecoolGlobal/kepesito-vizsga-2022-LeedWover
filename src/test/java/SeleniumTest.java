@@ -1,12 +1,44 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.util.concurrent.TimeUnit;
+
 public class SeleniumTest {
 
-    /*
-    Tölts be a böngészőbe az alábbi oldalt: https://demo.seleniumeasy.com/basic-first-form-demo.html
-    Írj tesztesetet két szám összegének ellenőrzésére a mellékelt dokumentumban, majd a tesztlépések alapján írj automatizált tesztet. Az oldalon, a Two Input Fields” szekcióban két beviteli mezőjét töltsd ki tetszőleges számokkal, majd végezd el a számok összeadásának ellenőrzését kiolvasva az oldalon megjelenő összeget.
-    Használj tetszőleges tesztadatot
-     */
-    public void TestInput()
-    {}
+    WebDriver driver;
+
+    @BeforeEach
+    public void setup() {
+        WebDriverManager.chromedriver().setup();
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-notifications");
+        options.addArguments("--disable-extensions");
+        //options.addArguments("--headless");
+        options.addArguments("--window-size=1920,1080");
+        options.addArguments("start-maximized");
+
+        driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+    }
+
+    @Test
+    public void TestInput() {
+        TwoInputFields twoInputFields = new TwoInputFields(driver);
+
+        twoInputFields.navigate();
+        int actual = twoInputFields.sumOfTwoNumbers("4", "3");
+        int expected = 7;
+        Assertions.assertEquals(expected, actual);
+    }
 
     /*
     Töltsd be az alábbi oldalt a böngészőbe: zhttps://demo.seleniumeasy.com/basic-select-dropdown-demo.html
