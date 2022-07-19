@@ -40,20 +40,26 @@ public class SeleniumTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    /*
-    Töltsd be az alábbi oldalt a böngészőbe: zhttps://demo.seleniumeasy.com/basic-select-dropdown-demo.html
-    Írj tesztesetet a mellékelt dokumentumban, majd a tesztlépések alapján írj automatizált tesztet a következők szerint: a Select List Demo szekció lenyíló mezőjében válaszd ki a hét utolsó napját és ellenőrizd, hogy az oldalon helyesen jelenik meg a kiválasztott érték
-    Tesztadatként használd az hét utolsó napját
-     */
-    public void SelectDayTest()
-    {}
+    @Test
+    public void SelectDayTest() {
+        SelectList selectList = new SelectList(driver);
 
-    /*
-    Töltsd be az alábbi oldalt a böngészőbe: https://demo.seleniumeasy.com/bootstrap-modal-demo.html#
-    Írj tesztesetet a mellékelt dokumentumban, majd a tesztlépések alapján írj automatizált tesztet. A tesztesetben ellenőrizd a modal alert ablak szöveges tartalmát összahasonlítva egy általad definiált elvárt eredménnyel. Nyisd meg a Single Modal ablakot, tárolt el az ablakon megjelenő szöveget egy változóba és zárd be az ablakot a bezárás gombbal
-     */
-    public void AlertTest()
-    {}
+        selectList.navigate();
+        String actual = selectList.selectListItem();
+        String expected = "Sunday";
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void AlertTest() {
+        HandleAlert handleAlert = new HandleAlert(driver);
+
+        handleAlert.navigate();
+        String actual = handleAlert.readFromModal();
+        String expected = "This is the place where the content for the modal dialog displays";
+        handleAlert.closeModal();
+        Assertions.assertEquals(expected, actual);
+    }
 
     /*
     Töltsd be az alábbi oldalt a böngészőbe: https://demo.seleniumeasy.com/data-list-filter-demo.html
