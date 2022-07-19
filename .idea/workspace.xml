@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef17c2b8-773c-41ab-9135-d9a9f5b5aa7d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/NameCards.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/names.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/WriteToFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/SeleniumTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SeleniumTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/SeleniumTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/SeleniumTest.class" afterDir="false" />
@@ -41,7 +42,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="JUnit.SeleniumTest.NamecardTest">
+  <component name="RunManager" selected="JUnit.SeleniumTest.TableTest">
     <configuration name="SeleniumTest.AlertTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="kepesito-vizsga-2022-LeedWover" />
       <option name="PACKAGE_NAME" value="" />
@@ -72,6 +73,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SeleniumTest.TableTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kepesito-vizsga-2022-LeedWover" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SeleniumTest" />
+      <option name="METHOD_NAME" value="TableTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SeleniumTest.TestInput" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="kepesito-vizsga-2022-LeedWover" />
       <option name="PACKAGE_NAME" value="" />
@@ -84,6 +95,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SeleniumTest.TableTest" />
         <item itemvalue="JUnit.SeleniumTest.NamecardTest" />
         <item itemvalue="JUnit.SeleniumTest.AlertTest" />
         <item itemvalue="JUnit.SeleniumTest.SelectDayTest" />

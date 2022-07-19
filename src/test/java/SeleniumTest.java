@@ -63,11 +63,6 @@ public class SeleniumTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    /*
-    Töltsd be az alábbi oldalt a böngészőbe: https://demo.seleniumeasy.com/data-list-filter-demo.html
-    Írj tesztesetet a mellékelt dokumentumban, majd a tesztlépések alapján írj automatizált tesztet. A teszteset ellenőrizze a névjegykártyák tartalmát.Olvasd ki a neveket a megjelenő névjegykártyákról és ellenőrzésként hasonlítsd össze egy elvárt eredményként megadott listával.
-    Használj relatív útvonalat a névjegykártya név elemeinek kiolvasásához.
-     */
     @Test
     public void NamecardTest() {
         NameCards nameCards = new NameCards(driver);
@@ -79,11 +74,48 @@ public class SeleniumTest {
         Assertions.assertArrayEquals(expected.toArray(), actual.toArray());
     }
 
-    /*
-    Töltsd be az alábbi oldalt a böngészőbe: https://demo.seleniumeasy.com/table-data-download-demo.html
-    Írj tesztesetet a mellékelt dokumentumban, majd a tesztlépések alapján írj automatizált tesztet. A tesztesetet ellenőrizze a táblázatból a neveket, amelyeket a táblázat első oszlop tartalmaz. Gyűjtsd össze a neveket és tárold le a names.txt fájlba majd a tesztesetben a fájl tartalmát hasonlítsd össze egy elvárt eredménnyel.
-     */
-    public void TableTest()
-    {}
+    @Test
+    public void TableTest() {
+        String fileName = "names.txt";
+        WriteToFile writeToFile = new WriteToFile(driver);
+
+        writeToFile.navigate();
+        writeToFile.writeNamesToFile(fileName);
+        String actual = writeToFile.readFromFile(fileName);
+        String expected = "Name Position\n" +
+                "Tiger Nixon\n" +
+                "Garrett Winters\n" +
+                "Ashton Cox\n" +
+                "Cedric Kelly\n" +
+                "Airi Satou\n" +
+                "Brielle Williamson\n" +
+                "Herrod Chandler\n" +
+                "Rhona Davidson\n" +
+                "Colleen Hurst\n" +
+                "Sonya Frost\n" +
+                "Jena Gaines\n" +
+                "Quinn Flynn\n" +
+                "Charde Marshall\n" +
+                "Haley Kennedy\n" +
+                "Tatyana Fitzpatrick\n" +
+                "Michael Silva\n" +
+                "Paul Byrd\n" +
+                "Gloria Little\n" +
+                "Bradley Greer\n" +
+                "Dai Rios\n" +
+                "Jenette Caldwell\n" +
+                "Yuri Berry\n" +
+                "Caesar Vance\n" +
+                "Doris Wilder\n" +
+                "Angelica Ramos\n" +
+                "Gavin Joyce\n" +
+                "Jennifer Chang\n" +
+                "Brenden Wagner\n" +
+                "Fiona Green\n" +
+                "Shou Itou\n" +
+                "Michelle House\n";
+        writeToFile.clearFileContent();
+        Assertions.assertEquals(expected, actual);
+    }
 
 }
