@@ -16,7 +16,7 @@ public class WriteToFile {
     }
 
     private final String pageUrl = "https://demo.seleniumeasy.com/table-data-download-demo.html";
-    private final By nameList = By.tagName("tr");
+    private final By nameList = By.xpath("//tbody/tr/td[1]");
 
 
     public void navigate() {
@@ -28,9 +28,7 @@ public class WriteToFile {
         for(WebElement element : elements) {
             try {
                 FileWriter writer = new FileWriter(fileName, true);
-                // ha az element.findElement(By.xpath("./td"))- vel próbálkoztam, akkor akárhogy variáltam, soha nem találta meg a td-t.
-                // Talán az zavarhatta meg, hogy az első sorom th, nem td. Már nem volt időm megfejteni sajnos. :(
-                writer.write(element.getText().split(" ")[0] + " " + element.getText().split(" ")[1] + "\n");
+                writer.write(element.getText() + "\n");
                 writer.close();
             } catch (IOException e) {
                 System.out.println("An error occurred.");

@@ -82,7 +82,7 @@ public class SeleniumTest {
         writeToFile.navigate();
         writeToFile.writeNamesToFile(fileName);
         String actual = writeToFile.readFromFile(fileName);
-        String expected = "Name Position\n" +
+        String expected =
                 "Tiger Nixon\n" +
                 "Garrett Winters\n" +
                 "Ashton Cox\n" +
